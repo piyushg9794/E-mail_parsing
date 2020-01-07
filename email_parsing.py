@@ -8,18 +8,20 @@ import pandas as pd
 
 #defining function for pattern searching in downloaded e-mail's backup
 
-def getEmailCounts(path1='path', field='To', pattern='([<].*@[^>]*)'):
+def getEmailCounts(path1=path_of_folder, field='To', pattern='([<].*@[^>]*)'):
     emails_dict=dict()
     
     # Looping through all the downloaded e-mails of extinsion .eml
     
     for path, subdirs, files in os.walk(path1):
         for name in files:
+		
             # Skipping the sql lite file, all other files are email files downloaded during backup of e-mails
+	
             if(name.endswith('sqlite')):
                 continue
                 
-            # Creating a handle on the file
+            # Creating a handle on the file for performing furthur operations
             
             hand=open(pathlib.PurePath(path, name))
             index=0
@@ -27,24 +29,27 @@ def getEmailCounts(path1='path', field='To', pattern='([<].*@[^>]*)'):
             for line in hand:
                 index+=1
                 email=''
+		
                 # Applying the condition to find pattern
+		
                 if line.startswith(field+":"):
                     email=re.findall(pattern,line)[0][1:]
                     print(email)
                     emails_dict[email]=emails_dict.get(email,0)+1
                     
     #sorting processed e-mails
+
     emails_dict=dict(sorted(emails_dict.items(), key=lambda x:x[1],reverse=True))
 
 
 
 #calling function1
 
-getEmailCounts(path, 'To', '([ <].*@[^>\n ]*)')
+getEmailCounts(path_of_folder, 'To', '([ <].*@[^>\n ]*)')
 
 #function to get the maximum time slot, the maximum recepient, the maximum sender and best friend
 
-def getStats(path1=path, emailidPersonal=email):
+def getStats(path1=path_of_folder, emailidPersonal=your_email):
     data = pd.DataFrame(columns=['fromEmails', 'toEmails', 'dates','hrs','emails'])
     
     # Looping through..
@@ -132,4 +137,4 @@ def getStats(path1=path, emailidPersonal=email):
 		
 # Calling the function2
 
-getStats(path,email)
+getStats(path_of_folder,emailid)
