@@ -8,7 +8,7 @@ import pandas as pd
 
 #defining function for pattern searching in downloaded e-mail's backup
 
-def getEmailCounts(path1=path_of_folder, field='To', pattern='([<].*@[^>]*)'):
+def getEmails(path1=path_of_folder, field='To', pattern='([<].*@[^>]*)'):
     emails_dict=dict()
     
     # Looping through all the downloaded e-mails of extinsion .eml
@@ -45,7 +45,7 @@ def getEmailCounts(path1=path_of_folder, field='To', pattern='([<].*@[^>]*)'):
 
 #calling function1
 
-getEmailCounts(path_of_folder, 'To', '([ <].*@[^>\n ]*)')
+getEmails(path_of_folder, 'To', '([ <].*@[^>\n ]*)')
 
 #function to get the maximum time slot, the maximum recepient, the maximum sender and best friend
 
