@@ -12,8 +12,20 @@ pandas -  to make dataframe
 
 # getEmails() function
 
-this function is defined for generating simple pattern matching. Using RegExp function outputs to and from of the email containing the queried pattern.
+
+
+this function is defined for generating simple pattern matching.
+Using RegExp function outputs to and from of the email containing the queried pattern.
+
+
 
 # getStats() function
 
-this function returns the top 5 most frequent emails contacted, most contacted along with no. of time contacted.
+this function returns the- 
+
+-- top 5 most frequent emails contacted
+-- most contacted along with no. of time contacted.
+-- top friend
+-- top recipent
+-- top sender
+-- most used time slot for emails
