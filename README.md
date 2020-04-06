@@ -2,6 +2,8 @@
 Performing queries on you emails in python using regexp 
 
 # Downloading Emails in .eml format to perfrom queries
+
+Using GYB to download e-mails by authenticating g-mail account
   
 # Libraries used
 
